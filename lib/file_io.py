@@ -1,15 +1,20 @@
 def write_file(file_name, file_content):
-    try:
-        with open(file_name, 'w') as file:
-            file.write(file_content)
-        print(f"File '{file_name}' successfully written.")
-    except FileNotFoundError:
-        print(f"Error: Directory for file '{file_name}' does not exist.")
-    except Exception as e:
-        print(f"An error occurred: {e}")
+    file_name_str = str(file_name)
+    file_path = file_name_str + '.txt'
+    with open(file_path, mode='w', encoding='utf-8') as file:
+        file.write(file_content)
 
+        
 def append_file(file_name, append_content):
-    pass
+    file_name_str = str(file_name)
+    file_path = file_name_str + '.txt'
+    with open(file_path, mode='a', encoding='utf-8') as file:
+        file.write(append_content)
 
 def read_file(file_name):
-    pass
+    file_name_str = str(file_name)
+    file_path = file_name_str + '.txt'
+    with open(file_path, encoding='utf-8') as file:
+        return file.read()
+
+        
